@@ -22,7 +22,7 @@ Inside LittleSearchEngine.java, the methods that need to be completed is
 4. **insertLastOccurrence:** Inserts the word and its occurrence in the correct position in an ArrayList using binary search
 5. **top5search:** Searches for the top 5 documents containing either of the two inputted words
 
-One must work inside these methods only, but declaring private methods inside Expression.java is allowed.
+One must work inside these methods only, but declaring private methods inside LittleSearchEngine.java is allowed.
 
 My implementation involves six private methods `hasPunctuation`, `removeDuplicates`, and `selectionSort`.
 
