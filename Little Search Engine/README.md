@@ -26,7 +26,7 @@ One must work inside these methods only, but declaring private methods inside Li
 
 My implementation involves six private methods `hasPunctuation`, `removeDuplicates`, and `selectionSort`.
 
-I am the author of SearchTest.java. Let me know if there are any bugs.
+I am the author of `SearchTest.java`. Let me know if there are any bugs.
 
 ## Testing
 
