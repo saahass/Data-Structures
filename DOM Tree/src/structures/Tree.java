@@ -49,10 +49,10 @@ public class Tree {
 			if (s.startsWith("</")) {				// closing tag
 				return null;
 			}
-			return new TagNode 										// opening tag
+			return new TagNode 					// opening tag
 					(s.substring(1, s.length()-1),buildRec(),buildRec());	
 		} else {
-			return new TagNode(s,null,buildRec());		// no tag
+			return new TagNode(s,null,buildRec());			// no tag
 		}
 	}
 	
@@ -68,13 +68,13 @@ public class Tree {
 	}
 	
 	private void replaceRec(String oldTag, String newTag, TagNode ptr) {
-		if (ptr == null) {		// base case
+		if (ptr == null) {				// base case
 			return;
 		}
-		if (ptr.tag.equals(oldTag)) {	// oldTag is found, replace with newTag
+		if (ptr.tag.equals(oldTag)) {			// oldTag is found, replace with newTag
 			ptr.tag = newTag;
 		}
-		replaceRec(oldTag,newTag,ptr.firstChild);		// search for oldTag in first child
+		replaceRec(oldTag,newTag,ptr.firstChild);	// search for oldTag in first child
 		replaceRec(oldTag,newTag,ptr.sibling);		// search for oldTag in sibling
 	}
 	
@@ -86,7 +86,7 @@ public class Tree {
 	 * @param row Row to bold, first row is numbered 1 (not 0).
 	 */
 	public void boldRow(int row) {
-		if (row < 1) { 										// if row is >= 0
+		if (row < 1) { 								// if row is >= 0
 			throw new IllegalArgumentException("row can't be less than 1"); 
 		}
 		TagNode rowTag = null;
@@ -109,13 +109,13 @@ public class Tree {
 	 * 
 	 */
 	private TagNode search(TagNode ptr, String target) {
-		if (ptr == null) {		// base case
+		if (ptr == null) {			// base case
 			return null;
 		}
 		if (ptr.tag.equals(target)) {		// target found
 			return ptr;
 		}
-		TagNode node = search(ptr.firstChild, target);	// searching through first child
+		TagNode node = search(ptr.firstChild, target);		// searching through first child
 		if (node == null) {
 			node = search(ptr.sibling, target);		// if target not found, search sibling
 		}
@@ -149,19 +149,19 @@ public class Tree {
 					ptr2 = ptr2.sibling;
 				}
 				ptr2.tag = "p";
-				if (check) {								// if target tag is prev's first child
+				if (check) {					// if target tag is prev's first child
 					ptr2.sibling = ptr.sibling;
 					prev.firstChild = ptr.firstChild;
-				} else {								// if target tag is prev's sibling	
+				} else {					// if target tag is prev's sibling	
 					ptr2.sibling = ptr.sibling;			
 					prev.sibling = ptr.firstChild;
 				}
 			}
 			else {
-				if (check) {								// if target tag is prev's first child
+				if (check) {					// if target tag is prev's first child
 					ptr.firstChild.sibling = ptr.sibling;
 					prev.firstChild = ptr.firstChild;
-				} else {								// if target tag is prev's sibling
+				} else {					// if target tag is prev's sibling
 					ptr.firstChild.sibling = ptr.sibling;
 					prev.sibling = ptr.firstChild;
 				}
