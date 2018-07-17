@@ -8,7 +8,7 @@ import structures.Stack;
 
 public class Expression {
 
-	public static String delims = " \t*+-/()[]";
+    public static String delims = " \t*+-/()[]";
 			
     /**
      * Complete this method
@@ -221,7 +221,7 @@ public class Expression {
 		    			}
 	    			}
 	    			catch (StringIndexOutOfBoundsException e) {
-	    				continue;				// negative digit is the first thing in string
+	    				continue;			// negative digit is the first thing in string
 	    			}
 			}	// load operator symbols into stack
 			Stack<Character> Operations = new Stack<Character>();
@@ -235,7 +235,7 @@ public class Expression {
 					char check = Operations.peek();
 					if (hasPriority(op, check)) {		// check priority of math operations
 						float a = Numbers.pop(), b = Numbers.pop();
-						answer = math(a,b,op);			// computation
+						answer = math(a,b,op);		// computation
 						if (!Operations.isEmpty()) {
 							Numbers.push(answer);
 						} 
@@ -246,12 +246,12 @@ public class Expression {
 						float a = Numbers.pop(), b = Numbers.pop();
 						answer = math(a,b,op);			// computation
 						Numbers.push(answer); Numbers.push(temp);
-						Operations.push(tempOp);			// placing priority answer into stack	
+						Operations.push(tempOp);		// placing priority answer into stack	
 					}
 				}
 				catch (NoSuchElementException e) {		//"Operations" is empty, final operation
 					float a = Numbers.pop(),b = Numbers.pop();
-					answer = math(a,b,op); 				// computation
+					answer = math(a,b,op); 			// computation
 				}
 			}
 		}
@@ -282,7 +282,7 @@ public class Expression {
     			case '-': return a - b;
     			case '*': return a * b;
     			case '/': return a / b;
-    		} throw new NullPointerException("math failure");		// should never happen
+    		} throw new NullPointerException("math failure");	// should never happen
     }
     
     /**
@@ -331,16 +331,14 @@ public class Expression {
     			if (expr.charAt(i) == '-') { 
     				try {
     					if (expr.charAt(i-1) == '*' || expr.charAt(i-1) == '/') {
-    						StringTokenizer st = new StringTokenizer
-    												(expr.substring(i+1),delims);
+    						StringTokenizer st = new StringTokenizer(expr.substring(i+1),delims);
     						Float.parseFloat(st.nextToken());
     						return true;
     					}
     				}
     				catch (NumberFormatException e) { return false; }
     				catch (StringIndexOutOfBoundsException e) {
-    					StringTokenizer st = new StringTokenizer
-											(expr.substring(i+1),delims);
+    					StringTokenizer st = new StringTokenizer(expr.substring(i+1),delims);
     					Float.parseFloat(st.nextToken());
     				}
     			} 
