@@ -86,12 +86,12 @@ public class Tree {
 	 * @param row Row to bold, first row is numbered 1 (not 0).
 	 */
 	public void boldRow(int row) {
-		if (row < 1) { 								// if row is >= 0
+		if (row < 1) { 							// if row is >= 0
 			throw new IllegalArgumentException("row can't be less than 1"); 
 		}
 		TagNode rowTag = null;
 		try {
-			rowTag = search(root,"table").firstChild;			// searching for table
+			rowTag = search(root,"table").firstChild;		// searching for table
 		} catch (NoSuchElementException e) {				// if table not found in html file
 			throw new NoSuchElementException("table not found in html file");
 		}
