@@ -18,9 +18,14 @@ public class SearchTest {
 		System.out.print("\nEnter document: ");
 		lse.makeIndex(sc.nextLine(), "noisewords.txt");
 		System.out.println("\nSuccess!");
-		while (true) {
+		int choice = 0;
+		while (choice != 2) {
 			System.out.print("\n(1)Search or (2)Quit: ");
-			int choice = Integer.parseInt(sc.nextLine());
+			try { choice = Integer.parseInt(sc.nextLine()); } 
+			catch (NumberFormatException e) { 
+				System.out.println("\nInvalid Input!"); 
+				continue;
+			}
 			switch (choice) {
 				case 1 : top5(lse);
 				case 2 : break;
@@ -34,7 +39,7 @@ public class SearchTest {
 		String word1 = sc.nextLine();
 		System.out.print("\nInput second word: ");
 		String word2 = sc.nextLine();
-		System.out.println("TOP 5 SEARCH:\n");
+		System.out.println("\nTOP 5 SEARCH:\n");
 		ArrayList<String> search = lse.top5search(word1, word2);
 		for (String s : search) {
 			System.out.print(s+" --> ");
