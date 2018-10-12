@@ -27,8 +27,6 @@ My implementation involves six private methods `hasPriority`, `math`, `contains`
 
 ## Testing
 
-Test cases mu. 
-
 Inside the file, if you want to create a variable, you must formate it as such:  `<name> <value>`
 
 If you want to create an array, you must format it as such: `<name> <array size>`
