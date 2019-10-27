@@ -23,7 +23,7 @@ Inside Expression.java, the methods that need to be completed is
 
 One must work inside these methods only, but declaring private methods inside Expression.java is allowed.
 
-My implementation involves six private methods `hasPriority`, `math`, `contains`, `doubleNegatives`, `hasNegativeDigit`, and `negativeDigit`.
+
 
 ## Testing
 
