@@ -257,7 +257,7 @@ public class LinkedList <T extends Comparable<T>>{
 		if (front == null) {
 			throw new NoSuchElementException("Linked List is empty");
 		}
-		for (Node<T> ptr = front;ptr.next != null; ptr = ptr.next) {
+		for (Node<T> ptr = front;ptr != null; ptr = ptr.next) {
 			System.out.print(ptr.data + " --> ");
 		}
 		System.out.println("\");
