@@ -29,6 +29,10 @@ public class DoublyLinkedList <T> {
 			this.prev = prev;
 		}
 		
+		public DoublyNode(T data) {
+			this(data,null,null);
+		}
+		
 		public String toString() {
 			return data.toString();
 		}
@@ -79,7 +83,7 @@ public class DoublyLinkedList <T> {
 	 */
 	public void addBack (T newItem) {
 		if (front == null) {
-			front = new DoublyNode <T> (newItem, front, null);
+			front = new DoublyNode <T> (newItem);
 		}
 		else {
 			DoublyNode <T> ptr = front;
