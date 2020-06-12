@@ -37,6 +37,21 @@ public class Queue <T> {
 	}
 	
 	/**
+	 * Peeks at the data at the front of the queue
+	 * 
+	 * @return the data at the front of the queue
+	 * @throws NullPointedException if the queue is empty
+	 */
+	public T peek() {
+		if (rear == null) {
+			throw new NullPointerException("Queue is empty");
+		} else if (rear.next == null) {
+			throw new NullPointerException("Queue Abstraction Function Error.");
+		}
+		return rear.next.data;
+	}
+	
+	/**
 	 * Dequeues the first item in the queue
 	 * 
 	 * @return the data of the dequeued node
@@ -45,8 +60,10 @@ public class Queue <T> {
 	public T dequeue() {
 		if (rear == null) {
 			throw new NullPointerException("Queue is empty");
+		} else if (rear.next == null) {
+			throw new NullPointerException("Queue Abstraction Function Error.");
 		}
-		T item = rear.data;
+		T item = rear.next.data;
 		if (rear == rear.next) {
 			rear = null;
 		} else {
